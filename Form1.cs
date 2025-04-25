@@ -157,9 +157,10 @@ namespace Testproject
         {
             if (axWindowsMediaPlayer.playState == WMPLib.WMPPlayState.wmppsMediaEnded)
             {
+                // Nếu trạng thái của trình phát là "đã phát xong bài hát"
                 if (chkRepeat.Checked)
                 {
-                    axWindowsMediaPlayer.Ctlcontrols.play();
+                    axWindowsMediaPlayer.Ctlcontrols.play(); // Nếu checkbox lặp (Repeat) được chọn, phát lại bài hiện tại.
                 }
                 else
                 {
@@ -183,34 +184,35 @@ namespace Testproject
 
         private void cbPlaybackSpeed_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Khi người dùng chọn một tốc độ phát trong ComboBox (cbPlaybackSpeed), sự kiện này sẽ được gọi.
             switch (cbPlaybackSpeed.SelectedItem.ToString())
             {
                 case "1x":
-                    axWindowsMediaPlayer.settings.rate = 1.0;
+                    axWindowsMediaPlayer.settings.rate = 1.0; // Đặt tốc độ phát lại về mức bình thường (1x).
                     break;
                 case "1.5x":
-                    axWindowsMediaPlayer.settings.rate = 1.5;
+                    axWindowsMediaPlayer.settings.rate = 1.5; // Đặt tốc độ phát lại là 1.5 lần bình thường.
                     break;
                 case "2x":
-                    axWindowsMediaPlayer.settings.rate = 2.0;
+                    axWindowsMediaPlayer.settings.rate = 2.0; // Đặt tốc độ phát lại là 2 lần bình thường.
                     break;
             }
         }
 
         private void btnRandom_Click(object sender, EventArgs e)
         {
-            if (ListSong.Items.Count == 0) return;
+            if (ListSong.Items.Count == 0) return; // Nếu danh sách bài hát rỗng, không làm gì cả.
 
-            Random rand = new Random();
-            int randomIndex = rand.Next(ListSong.Items.Count);
+            Random rand = new Random(); // Tạo một đối tượng Random để tạo số ngẫu nhiên.
+            int randomIndex = rand.Next(ListSong.Items.Count); // Lấy chỉ số ngẫu nhiên trong phạm vi số lượng bài hát.
 
-            DLL.Current = DLL.Head;
+            DLL.Current = DLL.Head; // Bắt đầu từ đầu danh sách liên kết đôi (DLL).
             for (int i = 0; i < randomIndex; i++)
-                DLL.Current = DLL.Current.Next;
+                DLL.Current = DLL.Current.Next; // Duyệt đến node có chỉ số randomIndex trong danh sách.
 
-            axWindowsMediaPlayer.URL = DLL.Current.FilePath;
-            ListSong.SelectedIndex = randomIndex;
-            btnPlay.BackgroundImage = Properties.Resources.pause;
+            axWindowsMediaPlayer.URL = DLL.Current.FilePath; // Phát bài hát tại vị trí ngẫu nhiên đó.
+            ListSong.SelectedIndex = randomIndex; // Đánh dấu bài hát đang phát trên ListBox.
+            btnPlay.BackgroundImage = Properties.Resources.pause; // Cập nhật hình ảnh nút Play thành "Pause".
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -259,17 +261,17 @@ namespace Testproject
 
         private void btnRewind15s_Click(object sender, EventArgs e)
         {
-            double newPosition = axWindowsMediaPlayer.Ctlcontrols.currentPosition - 15;
-            if (newPosition < 0) newPosition = 0;
-            axWindowsMediaPlayer.Ctlcontrols.currentPosition = newPosition;
+            double newPosition = axWindowsMediaPlayer.Ctlcontrols.currentPosition - 15; // Giảm vị trí hiện tại đi 15 giây.
+            if (newPosition < 0) newPosition = 0; // Nếu vượt quá đầu bài hát, đặt về 0 để tránh lỗi.
+            axWindowsMediaPlayer.Ctlcontrols.currentPosition = newPosition; // Gán vị trí phát lại mới cho trình phát.
         }
 
         private void btnForward15s_Click(object sender, EventArgs e)
         {
-            double duration = axWindowsMediaPlayer.currentMedia?.duration ?? 0;
-    double newPosition = axWindowsMediaPlayer.Ctlcontrols.currentPosition + 15;
-    if (newPosition > duration) newPosition = duration;
-    axWindowsMediaPlayer.Ctlcontrols.currentPosition = newPosition;
+            double duration = axWindowsMediaPlayer.currentMedia?.duration ?? 0; // Lấy độ dài của bài hát hiện tại. Nếu không có media, gán là 0.
+            double newPosition = axWindowsMediaPlayer.Ctlcontrols.currentPosition + 15; // Tăng vị trí hiện tại lên 15 giây.
+            if (newPosition > duration) newPosition = duration; // Nếu vượt quá thời lượng bài hát, đặt về cuối bài.
+    axWindowsMediaPlayer.Ctlcontrols.currentPosition = newPosition; // Gán vị trí phát lại mới cho trình phát.
         }
 
         private void RefreshListSong(int index1, int index2)   

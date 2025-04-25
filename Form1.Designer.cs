@@ -102,7 +102,7 @@
             this.btnSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSort.ForeColor = System.Drawing.Color.Aquamarine;
-            this.btnSort.Location = new System.Drawing.Point(156, 397);
+            this.btnSort.Location = new System.Drawing.Point(156, 438);
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(87, 38);
             this.btnSort.TabIndex = 13;
@@ -131,7 +131,7 @@
             this.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Add.ForeColor = System.Drawing.Color.Aquamarine;
-            this.btn_Add.Location = new System.Drawing.Point(35, 397);
+            this.btn_Add.Location = new System.Drawing.Point(35, 438);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(87, 38);
             this.btn_Add.TabIndex = 0;
@@ -145,7 +145,7 @@
             this.btn_Remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Remove.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Remove.ForeColor = System.Drawing.Color.Aquamarine;
-            this.btn_Remove.Location = new System.Drawing.Point(35, 443);
+            this.btn_Remove.Location = new System.Drawing.Point(35, 484);
             this.btn_Remove.Name = "btn_Remove";
             this.btn_Remove.Size = new System.Drawing.Size(87, 38);
             this.btn_Remove.TabIndex = 1;
@@ -159,7 +159,7 @@
             this.btn_Swap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Swap.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Swap.ForeColor = System.Drawing.Color.Aquamarine;
-            this.btn_Swap.Location = new System.Drawing.Point(156, 443);
+            this.btn_Swap.Location = new System.Drawing.Point(156, 484);
             this.btn_Swap.Name = "btn_Swap";
             this.btn_Swap.Size = new System.Drawing.Size(87, 38);
             this.btn_Swap.TabIndex = 2;
